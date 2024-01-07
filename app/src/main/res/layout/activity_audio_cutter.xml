@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".Activity.AudioCutterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:padding="16dp"
+            android:src="@drawable/back_img" />
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_medium"
+            android:singleLine="true"
+            android:text="Mp3 Cutter"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.example.musicdemo.Utils.CustomAudioViews.WaveformView
+                    android:id="@+id/audioWaveform"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#272727" />
+
+                <com.example.musicdemo.Utils.CustomAudioViews.MarkerView
+                    android:id="@+id/markerStart"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="start marker"
+                    android:minWidth="35dp"
+                    android:minHeight="35dp"
+                    android:nextFocusDown="@+id/markerEnd"
+                    android:src="@drawable/extract_chevron_left_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/txtStartPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00.00"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <com.example.musicdemo.Utils.CustomAudioViews.MarkerView
+                    android:id="@+id/markerEnd"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="end marker"
+                    android:minWidth="35dp"
+                    android:minHeight="35dp"
+                    android:nextFocusUp="@+id/markerStart"
+                    android:nextFocusDown="@+id/info"
+                    android:src="@drawable/extract_chevron_right_circle_24dp" />
+
+                <TextView
+                    android:id="@+id/txtEndPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00.01"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Music Name :"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_music_title"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_8"
+            android:fontFamily="@font/inter_medium"
+            android:hint="File Name"
+            android:inputType="text"
+            android:paddingHorizontal="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/musicControllerPlayButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:padding="4dp"
+                android:src="@drawable/music_play_img" />
+
+            <SeekBar
+                android:id="@+id/positionBarElapsedTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxHeight="8dp"
+                android:minHeight="8dp"
+                android:progressDrawable="@drawable/custom_seekbar2"
+                android:thumb="@drawable/seekbar_thumb2" />
+
+            <TextView
+                android:id="@+id/tvMusicElapsedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:text="00:00/00:00"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.37"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:id="@+id/music_extract_img_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.26"
+                android:adjustViewBounds="true"
+                android:src="@drawable/music_extract_img_3" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.37"
+                android:adjustViewBounds="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
